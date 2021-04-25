@@ -1,17 +1,11 @@
 # JavaScript Pipeline — Word Frequencies
 
-The `word-freq.js` script illustrates using a JavaScript functional pipeline to calculate word 
-frequencies found in a text document. An array prototype reduce function processes a list of 
-functions, each taking the reducer accumulator value as its single argument. The first item in 
-the pipeline is the initial argument: the name of an input text file. It becomes the initial 
-accumulated value.
+This project illustrates a JavaScript pipeline approach to breaking a problem into functional
+steps, where each function takes a single paramter of a given type. The demo here calculates the
+top 20 word frequencies found in a text document, after removing stopwords such as "the".
 
-## Why
-
-This project mainly illustrates a JavaScript pipeline approach to breaking a problem into functional
-steps, where each function takes a single paramter of a given type. The array prototype's reduce 
-function runs an array of functions, each taking a parameter taken from the result of the previous
-function. The first element of the funntion array is the initial argument instead of a function. 
+The pipleline steps reside in an array of functions, where each function takes a parameter taken from the result of the previous
+function. The first element of the funntion array is a special case. It holds the initial argument instead of a function. 
 The reduce function handles this speciai first case automatically.
 
 ## Toolchain
