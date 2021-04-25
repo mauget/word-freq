@@ -11,7 +11,7 @@ The reduce function handles this speciai first case automatically.
 ## Toolchain
 
 We used node.js v15.14.0. Our development machine is an Apple M1, but the project runs on
-Linux or Windows 10 proficed that node is installed.
+Linux or Windows 10 if node is present.
 
 ## Invocation and Results
 From a command terninal:
