@@ -86,5 +86,12 @@ function display(wordFreqs) {
     console.log(wordFreqs);
 }
 
-const pipeline = [ INPUT_TEXT, readText, parseWords, removeStopwords, calculateFreqs, sortFreqs, getTopFreqs, display ];
+const pipeline = [ INPUT_TEXT,
+    readText,
+    parseWords,
+    removeStopwords,
+    calculateFreqs,
+    sortFreqs,
+    getTopFreqs,
+    display ];
 pipeline.reduce((acc, fn) => fn(acc));
