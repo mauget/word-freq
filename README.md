@@ -1,10 +1,54 @@
-/**
- * This illustrates using a JavaScript functional pipeline to calculate word frequencies found in
- * a text document. An array prototype reduce function processes a list of functions, each taking the
- * reducer accumulator value as its single argument. The first item in the pipeline is the initial
- * argument: the name of an input text file. It becomes the initial accumulated value.
- * @type {module:fs}
- */
+# JavaScript Pipeline — Word Frequencies
+
+The `word-freq.js` script illustrates using a JavaScript functional pipeline to calculate word 
+frequencies found in a text document. An array prototype reduce function processes a list of 
+functions, each taking the reducer accumulator value as its single argument. The first item in 
+the pipeline is the initial argument: the name of an input text file. It becomes the initial 
+accumulated value.
+
+## Why
+
+This project mainly illustrates a JavaScript pipeline approach to breaking a problem into functional
+steps, where each function takes a single paramter of a given type. The array prototype's reduce 
+function runs an array of functions, each taking a parameter taken from the result of the previous
+function. The first element of the funntion array is the initial argument instead of a function. 
+The reduce function handles this speciai first case automatically.
+
+## Toolchain
+
+We used node.js v15.14.0. Our development machine is an Apple M1, but the project runs on
+Linux or Windows 10 proficed that node is installed.
+
+## Invocation and Results
+From a command terninal:
+
+```bash
+> node word-freq.js
+children: 18
+being: 15
+kingdom: 15
+one: 15
+thousand: 15
+from: 12
+country: 11
+number: 11
+therefore: 11
+may: 11
+great: 10
+very: 10
+his: 10
+own: 10
+child: 10
+year: 10
+all: 9
+many: 9
+other: 9
+we: 9
+```
+
+## Pipeline Script Source
+
+```javascript
 const fs = require('fs');
 const INPUT_TEXT = 'text.txt';
 const STOP_WORDS = 'stopwords.txt';
@@ -88,3 +132,4 @@ function display(wordFreqs) {
 
 const pipeline = [ INPUT_TEXT, readText, parseWords, removeStopwords, calculateFreqs, sortFreqs, getTopFreqs, display ];
 pipeline.reduce((acc, fn) => fn(acc));
+```
